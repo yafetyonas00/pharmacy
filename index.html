@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaCare Pro - Advanced Pharmacy Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* STUNNING CSS STYLES */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --danger-gradient: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            --info-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-attachment: fixed;
+            color: #1a202c;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ANIMATED BACKGROUND */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* FLOATING SHAPES */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            left: 60%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(180deg); }
+        }
+
+        /* LOGIN SCREEN STYLES */
+        .login-container {
+            position: relative;
+            z-index: 10;
+            max-width: 450px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: slideInUp 1s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .logo-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            backdrop-filter: blur(10px);
+            animation: pulse 2s infinite;
+            position: relative;
+        }
+
+        .logo-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .logo-divider {
+            width: 60px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* FORM STYLES */
+        .login-form-container {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: #f7fafc;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .login-btn:hover::before {
+            left: 100%;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .credentials-btn {
+            color: #667eea;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: underline;
+            transition: color 0.2s;
+            padding: 0.5rem;
+        }
+
+        .credentials-btn:hover {
+            color: #764ba2;
+        }
+
+        /* DASHBOARD STYLES */
+        .dashboard {
+            min-height: 100vh;
+            background: rgba(247, 250, 252, 0.95);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 10;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .nav-info h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 2px;
+        }
+
+        .nav-info p {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* STATS CARDS */
+        .dashboard-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .products-card .stat-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .stock-card .stat-icon {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+        }
+
+        .sales-card .stat-icon {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .value-card .stat-icon {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+
+        .stat-content {
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #718096;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-trend {
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-trend.positive {
+            color: #48bb78;
+        }
+
+        .stat-trend.negative {
+            color: #f56565;
+        }
+
+        /* ACTION SECTION */
+        .action-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .action-btn {
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: white;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .secondary-btn {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .accent-btn {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+
+        .info-btn {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            color: #2d3748;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* INVENTORY SECTION */
+        .inventory-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        }
+
+        .section-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .inventory-table th {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            color: #2d3748;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .inventory-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            vertical-align: middle;
+        }
+
+        .inventory-table tr:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        /* STATUS BADGES */
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-align: center;
+            min-width: 80px;
+            display: inline-block;
+        }
+
+        .status-low {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+
+        .status-in-stock {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+        }
+
+        .status-out {
+            background: linear-gradient(135deg, #a8a8a8, #888888);
+            color: white;
+        }
+
+        /* MODAL STYLES */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .modal-container, .credentials-modal {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalSlideIn 0.3s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .close-btn {
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #718096;
+        }
+
+        .close-btn:hover {
+            background: rgba(0, 0, 0, 0.2);
+            color: #2d3748;
+            transform: scale(1.1);
+        }
+
+        .modal-form {
+            padding: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .cancel-btn {
+            flex: 1;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.1);
+            color: #2d3748;
+            border: none;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cancel-btn:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-btn {
+            flex: 1;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* NOTIFICATION */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1001;
+            min-width: 300px;
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .notification-content {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .notification-icon {
+            font-size: 1.2rem;
+        }
+
+        .notification.success .notification-icon {
+            color: #48bb78;
+        }
+
+        .notification.error .notification-icon {
+            color: #f56565;
+        }
+
+        .notification.info .notification-icon {
+            color: #4299e1;
+        }
+
+        /* CREDENTIALS STYLES */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .credentials-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .credentials-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .credential-item {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.2s;
+        }
+
+        .credential-item:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .credential-pharmacy {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+        }
+
+        .credential-details {
+            font-size: 0.9rem;
+            color: #4a5568;
+            line-height: 1.4;
+        }
+
+        .credential-name {
+            font-size: 0.8rem;
+            color: #718096;
+            font-style: italic;
+            margin-top: 0.25rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-content {
+                padding: 0 1rem;
+            }
+            
+            .dashboard-content {
+                padding: 1rem;
+            }
+        }
+
+        /* UTILITY CLASSES */
+        .hidden {
+            display: none !important;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <!-- Login Screen -->
+    <div id="loginScreen" class="min-h-screen flex items-center justify-center px-4">
+        <div class="login-container">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-pills"></i>
+                </div>
+                <h1 class="logo-text">PharmaCare Pro</h1>
+                <p class="logo-subtitle">Advanced Multi-Pharmacy Management System</p>
+                <div class="logo-divider"></div>
+            </div>
+            
+            <!-- Login Form -->
+            <div class="login-form-container">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-building"></i>
+                            Select Your Pharmacy
+                        </label>
+                        <select id="pharmacySelect" class="form-input">
+                            <option value="">Choose your pharmacy location...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-user"></i>
+                            Username
+                        </label>
+                        <input type="text" id="username" class="form-input" placeholder="Enter your username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-lock"></i>
+                            Password
+                        </label>
+                        <input type="password" id="password" class="form-input" placeholder="Enter your password">
+                    </div>
+                    
+                    <button type="submit" class="login-btn">
+                        <span>Sign In</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+                
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <button id="showCredentials" class="credentials-btn">
+                        <i class="fas fa-key"></i>
+                        View Demo Credentials
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sample Credentials Modal -->
+    <div id="credentialsModal" class="modal-overlay hidden">
+        <div class="credentials-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-users"></i> Demo User Credentials</h3>
+                <button id="closeCredentials" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="credentials-grid">
+                <div>
+                    <h4><i class="fas fa-crown"></i> Pharmacy Owners</h4>
+                    <div id="ownerCredentials" class="credentials-list"></div>
+                </div>
+                <div>
+                    <h4><i class="fas fa-user-tie"></i> Pharmacy Admins</h4>
+                    <div id="adminCredentials" class="credentials-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="dashboard hidden">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <div class="nav-logo">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="nav-info">
+                        <h1>PharmaCare Pro</h1>
+                        <p id="pharmacyName"></p>
+                    </div>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="user-info">
+                        <div>
+                            <div id="userRole" style="font-weight: 600; color: #2d3748;"></div>
+                            <div id="userName" style="font-size: 0.9rem; color: #718096;"></div>
+                        </div>
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <button id="logoutBtn" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="dashboard-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card products-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="totalProducts">0</div>
+                        <div class="stat-label">Total Products</div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i> +12% from last month
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card stock-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="lowStock">0</div>
+                        <div class="stat-label">Low Stock Alerts</div>
+                        <div class="stat-trend negative">
+                            <i class="fas fa-arrow-down"></i> -5% from last week
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card sales-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="todaySales">$0</div>
+                        <div class="stat-label">Today's Sales</div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i> +23% from yesterday
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card value-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="totalValue">$0</div>
+                        <div class="stat-label">Inventory Value</div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i> +8% from last month
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-section">
+                <div class="action-buttons">
+                    <button id="addProductBtn" class="action-btn owner-only primary-btn hidden">
+                        <i class="fas fa-plus"></i>
+                        <span>Add New Product</span>
+                    </button>
+                    <button id="restockBtn" class="action-btn owner-only secondary-btn hidden">
+                        <i class="fas fa-box"></i>
+                        <span>Restock Inventory</span>
+                    </button>
+                    <button id="sellProductBtn" class="action-btn admin-only accent-btn hidden">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Sell Product</span>
+                    </button>
+                    <button id="viewSalesBtn" class="action-btn info-btn">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Sales Analytics</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Inventory Table -->
+            <div class="inventory-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-clipboard-list"></i> Inventory Management</h3>
+                </div>
+                
+                <div class="table-container">
+                    <table class="inventory-table">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTable">
+                            <!-- Products will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div id="addProductModal" class="modal-overlay hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3><i class="fas fa-plus-circle"></i> Add New Product</h3>
+                <button id="closeAddProduct" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="addProductForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Product Name</label>
+                        <input type="text" id="productName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select id="productCategory" class="form-input">
+                            <option value="Prescription">Prescription</option>
+                            <option value="OTC">Over-the-Counter</option>
+                            <option value="Supplement">Supplement</option>
+                            <option value="Personal Care">Personal Care</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Price ($)</label>
+                        <input type="number" id="productPrice" step="0.01" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Initial Stock</label>
+                        <input type="number" id="productStock" class="form-input" required>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="cancelAddProduct" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="submit-btn">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sell Product Modal -->
+    <div id="sellProductModal" class="modal-overlay hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Sell Product</h3>
+                <button id="closeSellProduct" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="sellProductForm" class="modal-form">
+                <div class="form-group">
+                    <label class="form-label">Select Product</label>
+                    <select id="sellProductSelect" class="form-input">
+                        <option value="">Choose product...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Quantity</label>
+                    <input type="number" id="sellQuantity" min="1" class="form-input" required>
+                </div>
+                <div id="saleInfo" class="hidden" style="background: rgba(102, 126, 234, 0.1); border-radius: 12px; padding: 1rem; margin: 1rem 0;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Price per unit:</span>
+                        <span>$<span id="unitPrice">0</span></span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Quantity:</span>
+                        <span id="selectedQuantity">0</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 1.1rem; color: #667eea; border-top: 1px solid rgba(102, 126, 234, 0.3); padding-top: 0.5rem;">
+                        <span>Total Amount:</span>
+                        <span>$<span id="totalPrice">0</span></span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="cancelSellProduct" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="submit-btn">Complete Sale</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Restock Modal -->
+    <div id="restockModal" class="modal-overlay hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3><i class="fas fa-box"></i> Restock Inventory</h3>
+                <button id="closeRestock" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="restockForm" class="modal-form">
+                <div class="form-group">
+                    <label class="form-label">Select Product</label>
+                    <select id="restockProductSelect" class="form-input">
+                        <option value="">Choose product...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Add Quantity</label>
+                    <input type="number" id="restockQuantity" min="1" class="form-input" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="cancelRestock" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="submit-btn">Restock Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification" class="notification hidden">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <span class="notification-message"></span>
+        </div>
+    </div>
+
+    <script>
+        // ADVANCED PHARMACY MANAGEMENT SYSTEM
+        class PharmaCareSystem {
+            constructor() {
+                this.currentUser = null;
+                this.currentPharmacy = null;
+                this.inventoryData = {};
+                this.salesData = {};
+                this.init();
+            }
+
+            init() {
+                this.loadPharmacies();
+                this.setupEventListeners();
+                this.initializeInventory();
+            }
+
+            get pharmacies() {
+                return [
+                    { id: 1, name: "Central Pharmacy", location: "Downtown" },
+                    { id: 2, name: "Green Cross Pharmacy", location: "Westside" },
+                    { id: 3, name: "Health Plus Pharmacy", location: "Eastside" },
+                    { id: 4, name: "MediCare Pharmacy", location: "Northside" },
+                    { id: 5, name: "Wellness Pharmacy", location: "Southside" },
+                    { id: 6, name: "City Pharmacy", location: "Midtown" },
+                    { id: 7, name: "Express Pharmacy", location: "Airport" },
+                    { id: 8, name: "Community Pharmacy", location: "Suburbs" },
+                    { id: 9, name: "Prime Pharmacy", location: "Business District" },
+                    { id: 10, name: "Family Pharmacy", location: "Residential Area" }
+                ];
+            }
+
+            get users() {
+                const userData = {};
+                const ownerNames = ["John Smith", "Sarah Johnson", "Mike Davis", "Emily Wilson", "David Brown", "Lisa Garcia", "Robert Miller", "Jennifer Taylor", "Michael Anderson", "Amanda White"];
+                const adminNames = ["Alex Thompson", "Maria Rodriguez", "James Wilson", "Linda Martinez", "Kevin Lee", "Nancy Clark", "Steven Lewis", "Patricia Hall", "Christopher Young", "Helen King"];
+                
+                for (let i = 1; i <= 10; i++) {
+                    userData[`owner${i}`] = {
+                        password: "owner123",
+                        role: "owner",
+                        pharmacyId: i,
+                        name: ownerNames[i - 1]
+                    };
+                    userData[`admin${i}`] = {
+                        password: "admin123",
+                        role: "admin",
+                        pharmacyId: i,
+                        name: adminNames[i - 1]
+                    };
+                }
+                return userData;
+            }
+
+            get sampleProducts() {
+                return [
+                    { name: "Paracetamol 500mg", category: "OTC", price: 5.99, stock: 100 },
+                    { name: "Ibuprofen 400mg", category: "OTC", price: 8.99, stock: 75 },
+                    { name: "Amoxicillin 250mg", category: "Prescription", price: 15.99, stock: 50 },
+                    { name: "Vitamin C 1000mg", category: "Supplement", price: 12.99, stock: 80 },
+                    { name: "Hand Sanitizer", category: "Personal Care", price: 3.99, stock: 120 },
+                    { name: "Aspirin 100mg", category: "OTC", price: 6.99, stock: 90 },
+                    { name: "Cough Syrup", category: "OTC", price: 9.99, stock: 60 },
+                    { name: "Blood Pressure Monitor", category: "Medical Device", price: 45.99, stock: 15 }
+                ];
+            }
+
+            loadPharmacies() {
+                const pharmacySelect = document.getElementById('pharmacySelect');
+                this.pharmacies.forEach(pharmacy => {
+                    const option = document.createElement('option');
+                    option.value = pharmacy.id;
+                    option.textContent = `${pharmacy.name} - ${pharmacy.location}`;
+                    pharmacySelect.appendChild(option);
+                });
+            }
+
+            setupEventListeners() {
+                document.getElementById('loginForm').addEventListener('submit', (e) => this.handleLogin(e));
+                document.getElementById('logoutBtn').addEventListener('click', () => this.handleLogout());
+                document.getElementById('showCredentials').addEventListener('click', () => this.showCredentials());
+                document.getElementById('closeCredentials').addEventListener('click', () => this.hideModal('credentialsModal'));
+                
+                document.getElementById('addProductBtn').addEventListener('click', () => this.showModal('addProductModal'));
+                document.getElementById('sellProductBtn').addEventListener('click', () => this.showModal('sellProductModal'));
+                document.getElementById('restockBtn').addEventListener('click', () => this.showModal('restockModal'));
+                
+                document.getElementById('addProductForm').addEventListener('submit', (e) => this.handleAddProduct(e));
+                document.getElementById('sellProductForm').addEventListener('submit', (e) => this.handleSellProduct(e));
+                document.getElementById('restockForm').addEventListener('submit', (e) => this.handleRestock(e));
+                
+                ['closeAddProduct', 'cancelAddProduct'].forEach(id => {
+                    document.getElementById(id).addEventListener('click', () => this.hideModal('addProductModal'));
+                });
+                ['closeSellProduct', 'cancelSellProduct'].forEach(id => {
+                    document.getElementById(id).addEventListener('click', () => this.hideModal('sellProductModal'));
+                });
+                ['closeRestock', 'cancelRestock'].forEach(id => {
+                    document.getElementById(id).addEventListener('click', () => this.hideModal('restockModal'));
+                });
+                
+                document.getElementById('sellProductSelect').addEventListener('change', () => this.updateSaleInfo());
+                document.getElementById('sellQuantity').addEventListener('input', () => this.updateSaleInfo());
+            }
+
+            initializeInventory() {
+                this.pharmacies.forEach(pharmacy => {
+                    if (!this.inventoryData[pharmacy.id]) {
+                        this.inventoryData[pharmacy.id] = [...this.sampleProducts];
+                        this.salesData[pharmacy.id] = [];
+                    }
+                });
+            }
+
+            handleLogin(e) {
+                e.preventDefault();
+                const pharmacyId = parseInt(document.getElementById('pharmacySelect').value);
+                const username = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value;
+                
+                if (!pharmacyId) {
+                    this.showNotification('Please select a pharmacy', 'error');
+                    return;
+                }
+                
+                const user = this.users[username];
+                if (!user || user.password !== password || user.pharmacyId !== pharmacyId) {
+                    this.showNotification('Invalid credentials or wrong pharmacy', 'error');
+                    return;
+                }
+                
+                this.currentUser = { ...user, username };
+                this.currentPharmacy = this.pharmacies.find(p => p.id === pharmacyId);
+                this.showDashboard();
+            }
+
+            showDashboard() {
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('dashboard').classList.remove('hidden');
+                
+                document.getElementById('pharmacyName').textContent = `${this.currentPharmacy.name} - ${this.currentPharmacy.location}`;
+                document.getElementById('userRole').textContent = this.currentUser.role.charAt(0).toUpperCase() + this.currentUser.role.slice(1);
+                document.getElementById('userName').textContent = this.currentUser.name;
+                
+                if (this.currentUser.role === 'owner') {
+                    document.querySelectorAll('.owner-only').forEach(el => el.classList.remove('hidden'));
+                    document.querySelectorAll('.admin-only').forEach(el => el.classList.add('hidden'));
+                } else {
+                    document.querySelectorAll('.admin-only').forEach(el => el.classList.remove('hidden'));
+                    document.querySelectorAll('.owner-only').forEach(el => el.classList.add('hidden'));
+                }
+                
+                this.updateDashboard();
+                this.showNotification(`Welcome back, ${this.currentUser.name}!`, 'success');
+            }
+
+            updateDashboard() {
+                const inventory = this.inventoryData[this.currentPharmacy.id] || [];
+                const sales = this.salesData[this.currentPharmacy.id] || [];
+                
+                document.getElementById('totalProducts').textContent = inventory.length;
+                document.getElementById('lowStock').textContent = inventory.filter(p => p.stock < 20).length;
+                
+                const todaySales = sales
+                    .filter(s => new Date(s.date).toDateString() === new Date().toDateString())
+                    .reduce((sum, s) => sum + s.total, 0);
+                document.getElementById('todaySales').textContent = `$${todaySales.toFixed(2)}`;
+                
+                const totalValue = inventory.reduce((sum, p) => sum + (p.price * p.stock), 0);
+                document.getElementById('totalValue').textContent = `$${totalValue.toFixed(2)}`;
+                
+                this.updateProductsTable();
+                this.updateProductSelects();
+            }
+
+            updateProductsTable() {
+                const tbody = document.getElementById('productsTable');
+                const inventory = this.inventoryData[this.currentPharmacy.id] || [];
+                
+                tbody.innerHTML = '';
+                
+                inventory.forEach((product, index) => {
+                    const row = document.createElement('tr');
+                    
+                    const stockStatus = product.stock === 0 ? 
+                        '<span class="status-badge status-out">Out of Stock</span>' :
+                        product.stock < 20 ? 
+                        '<span class="status-badge status-low">Low Stock</span>' :
+                        '<span class="status-badge status-in-stock">In Stock</span>';
+                    
+                    row.innerHTML = `
+                        <td style="font-weight: 600; color: #2d3748;">${product.name}</td>
+                        <td>${product.category}</td>
+                        <td style="font-weight: 600;">$${product.price.toFixed(2)}</td>
+                        <td style="font-weight: 600; color: ${product.stock < 20 ? '#f56565' : '#48bb78'};">${product.stock}</td>
+                        <td>${stockStatus}</td>
+                        <td>
+                            <button onclick="pharmacySystem.deleteProduct(${index})" 
+                                style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.8rem; transition: all 0.2s;"
+                                onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(255, 107, 107, 0.4)'"
+                                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+
+            updateProductSelects() {
+                const inventory = this.inventoryData[this.currentPharmacy.id] || [];
+                
+                const sellSelect = document.getElementById('sellProductSelect');
+                sellSelect.innerHTML = '<option value="">Choose product...</option>';
+                inventory.forEach((product, index) => {
+                    if (product.stock > 0) {
+                        const option = document.createElement('option');
+                        option.value = index;
+                        option.textContent = `${product.name} (Stock: ${product.stock})`;
+                        sellSelect.appendChild(option);
+                    }
+                });
+                
+                const restockSelect = document.getElementById('restockProductSelect');
+                restockSelect.innerHTML = '<option value="">Choose product...</option>';
+                inventory.forEach((product, index) => {
+                    const option = document.createElement('option');
+                    option.value = index;
+                    option.textContent = product.name;
+                    restockSelect.appendChild(option);
+                });
+            }
+
+            showCredentials() {
+                const modal = document.getElementById('credentialsModal');
+                const ownerDiv = document.getElementById('ownerCredentials');
+                const adminDiv = document.getElementById('adminCredentials');
+                
+                ownerDiv.innerHTML = '';
+                adminDiv.innerHTML = '';
+                
+                Object.entries(this.users).forEach(([username, userData]) => {
+                    const pharmacy = this.pharmacies.find(p => p.id === userData.pharmacyId);
+                    const credentialItem = document.createElement('div');
+                    credentialItem.className = 'credential-item';
+                    credentialItem.innerHTML = `
+                        <div class="credential-pharmacy">${pharmacy.name}</div>
+                        <div class="credential-details">
+                            <strong>Username:</strong> ${username}<br>
+                            <strong>Password:</strong> ${userData.password}
+                        </div>
+                        <div class="credential-name">${userData.name}</div>
+                    `;
+                    
+                    if (userData.role === 'owner') {
+                        ownerDiv.appendChild(credentialItem);
+                    } else {
+                        adminDiv.appendChild(credentialItem);
+                    }
+                });
+                
+                this.showModal('credentialsModal');
+            }
+
+            showModal(modalId) {
+                document.getElementById(modalId).classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            hideModal(modalId) {
+                document.getElementById(modalId).classList.add('hidden');
+                document.body.style.overflow = '';
+                
+                const forms = document.querySelectorAll(`#${modalId} form`);
+                forms.forEach(form => form.reset());
+                
+                if (modalId === 'sellProductModal') {
+                    document.getElementById('saleInfo').classList.add('hidden');
+                }
+            }
+
+            handleAddProduct(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('productName').value.trim();
+                const category = document.getElementById('productCategory').value;
+                const price = parseFloat(document.getElementById('productPrice').value);
+                const stock = parseInt(document.getElementById('productStock').value);
+                
+                const newProduct = { name, category, price, stock };
+                this.inventoryData[this.currentPharmacy.id].push(newProduct);
+                
+                this.updateDashboard();
+                this.hideModal('addProductModal');
+                this.showNotification(`✅ Product "${name}" added successfully!`, 'success');
+            }
+
+            handleSellProduct(e) {
+                e.preventDefault();
+                
+                const productIndex = parseInt(document.getElementById('sellProductSelect').value);
+                const quantity = parseInt(document.getElementById('sellQuantity').value);
+                
+                const product = this.inventoryData[this.currentPharmacy.id][productIndex];
+                
+                if (quantity > product.stock) {
+                    this.showNotification('❌ Insufficient stock!', 'error');
+                    return;
+                }
+                
+                const total = quantity * product.price;
+                product.stock -= quantity;
+                
+                const sale = {
+                    date: new Date().toISOString(),
+                    productName: product.name,
+                    quantity: quantity,
+                    unitPrice: product.price,
+                    total: total,
+                    soldBy: this.currentUser.name
+                };
+                
+                this.salesData[this.currentPharmacy.id].unshift(sale);
+                
+                this.updateDashboard();
+                this.hideModal('sellProductModal');
+                this.showNotification(`✅ Sale completed! Total: $${total.toFixed(2)}`, 'success');
+            }
+
+            handleRestock(e) {
+                e.preventDefault();
+                
+                const productIndex = parseInt(document.getElementById('restockProductSelect').value);
+                const quantity = parseInt(document.getElementById('restockQuantity').value);
+                
+                this.inventoryData[this.currentPharmacy.id][productIndex].stock += quantity;
+                
+                this.updateDashboard();
+                this.hideModal('restockModal');
+                this.showNotification(`✅ Product restocked with ${quantity} units!`, 'success');
+            }
+
+            updateSaleInfo() {
+                const productIndex = document.getElementById('sellProductSelect').value;
+                const quantity = parseInt(document.getElementById('sellQuantity').value) || 0;
+                
+                if (productIndex && quantity > 0) {
+                    const product = this.inventoryData[this.currentPharmacy.id][productIndex];
+                    const total = quantity * product.price;
+                    
+                    document.getElementById('unitPrice').textContent = product.price.toFixed(2);
+                    document.getElementById('selectedQuantity').textContent = quantity;
+                    document.getElementById('totalPrice').textContent = total.toFixed(2);
+                    document.getElementById('saleInfo').classList.remove('hidden');
+                    
+                    const quantityInput = document.getElementById('sellQuantity');
+                    quantityInput.max = product.stock;
+                    
+                    if (quantity > product.stock) {
+                        quantityInput.setCustomValidity(`Only ${product.stock} units available`);
+                        quantityInput.style.borderColor = '#f56565';
+                    } else {
+                        quantityInput.setCustomValidity('');
+                        quantityInput.style.borderColor = '';
+                    }
+                } else {
+                    document.getElementById('saleInfo').classList.add('hidden');
+                }
+            }
+
+            deleteProduct(index) {
+                const product = this.inventoryData[this.currentPharmacy.id][index];
+                
+                if (confirm(`Are you sure you want to delete "${product.name}"?`)) {
+                    this.inventoryData[this.currentPharmacy.id].splice(index, 1);
+                    this.updateDashboard();
+                    this.showNotification(`✅ Product "${product.name}" deleted successfully!`, 'success');
+                }
+            }
+
+            showNotification(message, type = 'info') {
+                const notification = document.getElementById('notification');
+                const icon = notification.querySelector('.notification-icon');
+                const messageEl = notification.querySelector('.notification-message');
+                
+                const icons = {
+                    success: 'fas fa-check-circle',
+                    error: 'fas fa-exclamation-circle',
+                    info: 'fas fa-info-circle'
+                };
+                
+                icon.className = `notification-icon ${icons[type] || icons.info}`;
+                messageEl.textContent = message;
+                notification.className = `notification ${type}`;
+                
+                notification.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    notification.classList.add('hidden');
+                }, 5000);
+            }
+
+            handleLogout() {
+                this.currentUser = null;
+                this.currentPharmacy = null;
+                document.getElementById('dashboard').classList.add('hidden');
+                document.getElementById('loginScreen').classList.remove('hidden');
+                document.getElementById('loginForm').reset();
+                this.showNotification('Successfully logged out!', 'info');
+            }
+        }
+
+        // Initialize the system
+        const pharmacySystem = new PharmaCareSystem();
+    </script>
+</body>
+</html>
